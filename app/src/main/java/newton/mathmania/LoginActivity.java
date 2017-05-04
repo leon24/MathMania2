@@ -11,7 +11,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.i("hadhasdhsa","Hejsan");
-        Log.i("hadhasdhsa", "chr är bäst");
+        Log.i("hadhasdhsa", "Remix");
 
     }
 }
