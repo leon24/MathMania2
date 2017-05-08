@@ -39,6 +39,8 @@ public class MenuActivity extends AppCompatActivity {
     public void easyButtonClick(View v) {
 
         toastMessage("Play on the easy difficulty.");
+        Intent intent = new Intent(MenuActivity.this, EasyDifficultyActivity.class);
+        MenuActivity.this.startActivity(intent);
 
     }
 

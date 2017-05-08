@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".MenuActivity" />
         <activity android:name=".AboutActivity" />
+        <activity android:name=".EasyDifficultyActivity"></activity>
     </application>
 
 </manifest>
