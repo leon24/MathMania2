@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MathMania</string>
+
+    <string name="login_userNameHint">Username</string>
+    <string name="login_userPassHint">Password</string>
+    <string name="login_loginButton">Sign in</string>
+
+    <string name="mathmania_logotype">MathMania logotype</string>
+
+    <string name="menu_playButtonText">Play</string>
+    <string name="menu_accountButtonText">Account</string>
+    <string name="menu_settingsButtonText">Settings</string>
+    <string name="menu_aboutButtonText">About</string>
+    <string name="menu_easyButtonText">Easy</string>
+    <string name="menu_hardButtonText">Hard</string>
+
+    <color name="theme_blue">#3f51b5</color>
+    <color name="theme_yellow">#edf00c</color>
 </resources>
