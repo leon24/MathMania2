@@ -7,6 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
+/**
+ * Created by LeonsBärbara on 2017-05-08.
+ */
+
 public class DatabaseModel extends SQLiteOpenHelper {
 
     private static final String TAG ="DatabaseModel";
@@ -35,29 +41,14 @@ public class DatabaseModel extends SQLiteOpenHelper {
         onCreate(db);
 
     }
-    // Lägger till password till Databas
-    public boolean addPassword(String pass){
+    // Lägger till password och username till database
+    public boolean addUser(String pass, String usern){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(COL2,usern);
         contentValues.put(COL3,pass);
 
-        Log.i(TAG, "addData: AddingPassword "+ pass + " to "+ TABLE_NAME);
-
-        long result = db.insert(TABLE_NAME, null, contentValues);
-
-        if (result == -1) {
-            return false;
-        } else {
-            return true;
-            }
-        }
-    // Lägger till username till Databas
-    public boolean addUsername(String user){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL2,user);
-
-        Log.i(TAG, "addData: AddingPassword "+ user + " to "+ TABLE_NAME);
+        Log.i(TAG, "addData: AddingPassword and AddingUsername "+ pass + " to "+ TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -68,12 +59,20 @@ public class DatabaseModel extends SQLiteOpenHelper {
         }
     }
     //Hämtar Data från databas
-    public Cursor getData(){
+    public ArrayList<String> getData(ArrayList passwords, ArrayList userNames){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM "+ TABLE_NAME;
         Cursor data = db.rawQuery(query,null);
-        return data;
+        data.moveToFirst();
+        int userNameIndex = data.getColumnIndex(COL2);
+        int passWordIndex = data.getColumnIndex(COL3);
+        String username = data.getString(userNameIndex);
+        String password = data.getString(passWordIndex);
+        passwords.add(password);
+        userNames.add(username);
+
+
+        return passwords;
     }
 
-    }
-
+}
