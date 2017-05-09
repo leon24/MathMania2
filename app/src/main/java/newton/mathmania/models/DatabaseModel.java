@@ -7,10 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by LeonsBärbara on 2017-05-08.
- */
-
 public class DatabaseModel extends SQLiteOpenHelper {
 
     private static final String TAG ="DatabaseModel";

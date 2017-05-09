@@ -47,6 +47,8 @@ public class MenuActivity extends AppCompatActivity {
     public void hardButtonClick(View v) {
 
         toastMessage("Play on the hard difficulty.");
+        Intent intent = new Intent(MenuActivity.this, HardDifficultyActivity.class);
+        MenuActivity.this.startActivity(intent);
 
     }
 
