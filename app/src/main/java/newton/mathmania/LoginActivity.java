@@ -11,21 +11,14 @@ import newton.mathmania.models.DatabaseModel;
 
 public class LoginActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
     DatabaseModel mDatabaseModel;
-=======
     private EditText userName;
     private EditText userPass;
->>>>>>> origin/master
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-<<<<<<< HEAD
         mDatabaseModel = new DatabaseModel(this);
-=======
->>>>>>> origin/master
 
         userName = (EditText) findViewById(R.id.loginUserName);
         userPass = (EditText) findViewById(R.id.loginUserPass);
