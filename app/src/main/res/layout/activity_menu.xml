@@ -10,10 +10,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="newton.mathmania.LoginActivity">
+    tools:context="newton.mathmania.MenuActivity">
 
     <ImageView
-        android:id="@+id/loginLogotype"
+        android:id="@+id/menuLogotype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/mathmanialogo"
@@ -27,56 +27,71 @@
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/mathmania_logotype" />
 
-    <EditText
-        android:id="@+id/loginUserName"
+    <Button
+        android:id="@+id/playButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:padding="10dp"
-        android:hint="@string/login_userNameHint"
-        android:inputType="textPersonName"
-        android:background="@drawable/edittext_border"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLogotype"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="playButtonClick"
+        android:text="@string/menu_playButtonText"
+        android:textSize="30sp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/accountButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <EditText
-        android:id="@+id/loginUserPass"
+    <Button
+        android:id="@+id/accountButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="accountButtonClick"
+        android:text="@string/menu_accountButtonText"
+        android:textSize="30sp"
+        android:padding="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton" />
+
+    <Button
+        android:id="@+id/settingsButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:padding="10dp"
-        android:hint="@string/login_userPassHint"
-        android:inputType="textPassword"
-        android:background="@drawable/edittext_border"
-        app:layout_constraintHorizontal_bias="0.503"
+        android:layout_marginBottom="8dp"
+        android:onClick="settingsButtonClick"
+        android:text="@string/menu_settingsButtonText"
+        android:textSize="30sp"
+        android:padding="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUserName"
+        app:layout_constraintBottom_toTopOf="@+id/aboutButton"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/aboutButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/login_loginButton"
-        android:onClick="loginCheck"
+        android:layout_marginBottom="8dp"
+        android:onClick="aboutButtonClick"
+        android:text="@string/menu_aboutButtonText"
+        android:textSize="30sp"
+        android:padding="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUserPass"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
