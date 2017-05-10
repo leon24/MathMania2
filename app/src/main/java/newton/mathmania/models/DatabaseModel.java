@@ -15,22 +15,22 @@ import java.util.ArrayList;
 
 public class DatabaseModel extends SQLiteOpenHelper {
 
-    private static final String TAG ="DatabaseModel";
-
-    private static final String TABLE_NAME = "login";
-    private static final String COL1="ID";
-    private static final String COL2="username";
-    private static final String COL3="password";
+    private static final String TAG = "DatabaseModel";
+    private static final String DATABASE_NAME = "MathMania.db";
+    private static final String TABLE_NAME = "user_login";
+    private static final String COL1 = "ID";
+    private static final String COL2 = "USERNAME";
+    private static final String COL3 = "PASSWORD";
 
     public DatabaseModel(Context context) {
-        super(context, TABLE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     //Skapar Databas
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COL2 +" TEXT, " + COL3 +" TEXT)" ;
+                COL2 + " TEXT, " + COL3 + " TEXT)";
         db.execSQL(createTable);
 
     }
@@ -41,14 +41,15 @@ public class DatabaseModel extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
     // Lägger till password och username till database
-    public boolean addUser(String pass, String usern){
+    public boolean addUser(String pass, String usern) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL2,usern);
-        contentValues.put(COL3,pass);
+        contentValues.put(COL2, usern);
+        contentValues.put(COL3, pass);
 
-        Log.i(TAG, "addData: AddingPassword and AddingUsername "+ pass + " to "+ TABLE_NAME);
+        Log.i(TAG, "addData: AddingPassword and AddingUsername " + pass + " to " + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -58,21 +59,19 @@ public class DatabaseModel extends SQLiteOpenHelper {
             return true;
         }
     }
+
     //Hämtar Data från databas
-    public ArrayList<String> getData(ArrayList passwords, ArrayList userNames){
+    public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM "+ TABLE_NAME;
-        Cursor data = db.rawQuery(query,null);
-        data.moveToFirst();
-        int userNameIndex = data.getColumnIndex(COL2);
-        int passWordIndex = data.getColumnIndex(COL3);
-        String username = data.getString(userNameIndex);
-        String password = data.getString(passWordIndex);
-        passwords.add(password);
-        userNames.add(username);
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor data = db.rawQuery(query, null);
+        return data;
 
 
-        return passwords;
     }
-
 }
+
+
+
+
+
