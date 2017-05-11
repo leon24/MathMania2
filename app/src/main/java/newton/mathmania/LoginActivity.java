@@ -12,42 +12,26 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import newton.mathmania.models.DatabaseModel;
+import newton.mathmania.models.DatabaseHelper;
 import newton.mathmania.models.userLogin;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //DatabaseModel mDatabaseModel;
+    //DatabaseHelper mDatabaseHelper;
     private EditText userName;
     private EditText userPass;
     private ArrayList<userLogin> userlist = new ArrayList<userLogin>();
-    private DatabaseModel mDatabaseModel;
+    private DatabaseHelper mDatabaseHelper;
+    private userLogin login = new userLogin();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mDatabaseModel = new DatabaseModel(this);
+        mDatabaseHelper = new DatabaseHelper(this);
 
         userName = (EditText) findViewById(R.id.loginUserName);
         userPass = (EditText) findViewById(R.id.loginUserPass);
-
-        Cursor c = mDatabaseModel.getData();
-        c.moveToFirst();
-        if(c.getCount()==0){
-            Log.i("Database","Det finns inget i databasen");
-            return;
-        }
-        else{
-            while (c.moveToNext()){
-                userlist.add(new userLogin(c.getString(1),c.getString(2)));
-
-            }
-        }
-    }
-
-    public void loginCheck(View v) {
-        userLogin login = new userLogin(userName.getText().toString(),userPass.getText().toString());
-        SQLiteDatabase db = mDatabaseModel.getWritableDatabase();
+        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
         String count = "SELECT count(*) FROM user_login";
         Cursor mcursor = db.rawQuery(count, null);
         mcursor.moveToFirst();
@@ -55,22 +39,52 @@ public class LoginActivity extends AppCompatActivity {
         if(icount>0){}
         else{
             Log.i("Database","Lägger till Lösenord och användarnamn");
-            mDatabaseModel.addUser("Admin","Admin");
+            mDatabaseHelper.addUser("Admin","Admin");
+            mDatabaseHelper.addUser("Leon","Leon");
+            mDatabaseHelper.addUser("Remi","Remi");
+            mDatabaseHelper.addUser("Christian","Christian");
+            mDatabaseHelper.addUser("Tobias","Tobias");
 
         }
+
+        Cursor c = mDatabaseHelper.getData();
+        c.moveToFirst();
+        Log.i("Database",c.getCount()+"?");
+        if(c.getCount()==0){
+            Log.i("Database","Det finns inget i databasen");
+        }
+        else{
+            while (c.moveToNext()){
+                Log.i("Database","While loop körs");
+                userlist.add(new userLogin(c.getString(1),c.getString(2)));
+
+            }
+        }
+
+
+
+
+    }
+
+    public void loginCheck(View v) {
+        login.setUserName(userName.getText().toString());
+        login.setPassword(userPass.getText().toString());
+        Log.i("Database",login.toString()+userlist.get(0).toString());
         for (userLogin member : userlist){
             Log.i("Database", member.toString());
         }
-        Log.i("Database",login.toString()+"hej");
 
-        if (userlist.get(0).getUserName().equals(login.getUserName())&& userlist.get(0).getPassword().equals(login.getPassword())){
-            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-            LoginActivity.this.startActivity(intent);
-        }
-        else {
+for (int i=0; i<userlist.size(); i++) {
+    if (userlist.get(i).getUserName().equals(login.getUserName()) && userlist.get(i).getPassword().equals(login.getPassword())) {
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+        LoginActivity.this.startActivity(intent);
+    }
+
+       /* else {
             toastMessage("Invalid username or password. Please try again.");
-        }
+        }*/
 
+}
     }
 
     private void toastMessage (String message) {

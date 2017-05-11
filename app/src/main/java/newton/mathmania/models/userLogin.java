@@ -4,7 +4,9 @@ package newton.mathmania.models;
  * Created by LeonsBärbara on 2017-05-09.
  */
 
-public class userLogin {
+public class userLogin{
+    public userLogin(){}
+
     @Override
     public String toString() {
         return (this.getUserName()+

@@ -13,17 +13,18 @@ import java.util.ArrayList;
  * Created by LeonsBärbara on 2017-05-08.
  */
 
-public class DatabaseModel extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "DatabaseModel";
+    private static final String TAG = "DatabaseHelper";
     private static final String DATABASE_NAME = "MathMania.db";
     private static final String TABLE_NAME = "user_login";
     private static final String COL1 = "ID";
     private static final String COL2 = "USERNAME";
     private static final String COL3 = "PASSWORD";
 
-    public DatabaseModel(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
+
     }
 
     @Override
