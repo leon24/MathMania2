@@ -48,10 +48,10 @@
         android:text="Button"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3" />
+        app:layout_constraintBottom_toTopOf="@+id/button_d" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_d"
         android:layout_width="170dp"
         android:layout_height="115dp"
         android:layout_marginBottom="8dp"
@@ -68,10 +68,10 @@
         android:text="Button"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4" />
+        app:layout_constraintBottom_toTopOf="@+id/button_f" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_f"
         android:layout_width="170dp"
         android:layout_height="115dp"
         android:layout_marginBottom="8dp"
