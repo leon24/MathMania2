@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         userName = (EditText) findViewById(R.id.loginUserName);
         userPass = (EditText) findViewById(R.id.loginUserPass);
+
         SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
         String count = "SELECT count(*) FROM user_login";
         Cursor mcursor = db.rawQuery(count, null);
@@ -60,10 +61,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         }
-
-
-
-
     }
 
     public void loginCheck(View v) {
