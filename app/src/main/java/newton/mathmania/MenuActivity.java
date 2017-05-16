@@ -20,36 +20,8 @@ public class MenuActivity extends AppCompatActivity {
 
     public void playButtonClick(View v) {
 
-        AlertDialog.Builder chooseDifficulty = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        chooseDifficulty.setView(inflater.inflate(R.layout.dialog_difficulty, null));
-
-        chooseDifficulty.setTitle("Choose a difficulty setting:");
-
-        chooseDifficulty.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        chooseDifficulty.create().show();
-    }
-
-    public void easyButtonClick(View v) {
-
-        toastMessage("Play on the easy difficulty.");
-        Intent intent = new Intent(MenuActivity.this, EasyDifficultyActivity.class);
+        Intent intent = new Intent(MenuActivity.this, ChooseDifficultyActivity.class);
         MenuActivity.this.startActivity(intent);
-
-    }
-
-    public void hardButtonClick(View v) {
-
-        toastMessage("Play on the hard difficulty.");
-        Intent intent = new Intent(MenuActivity.this, HardDifficultyActivity.class);
-        MenuActivity.this.startActivity(intent);
-
     }
 
     public void accountButtonClick(View v) {

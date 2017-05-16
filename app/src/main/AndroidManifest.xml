@@ -19,7 +19,7 @@
         <activity android:name=".AboutActivity" />
         <activity android:name=".EasyDifficultyActivity" />
         <activity android:name=".HardDifficultyActivity" />
-
+        <activity android:name=".ChooseDifficultyActivity"></activity>
     </application>
 
 </manifest>
