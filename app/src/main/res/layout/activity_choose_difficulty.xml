@@ -22,7 +22,7 @@
         android:contentDescription="@string/mathmania_logotype" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerChooseMultiplicationTable"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
