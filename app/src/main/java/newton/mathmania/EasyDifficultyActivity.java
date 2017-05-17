@@ -24,13 +24,14 @@ public class EasyDifficultyActivity extends AppCompatActivity {
 
         parseJson(loadJSONFromAsset());
     }
+    int x = 3;
 
     public String loadJSONFromAsset()
     {
         String json = null;
         try
         {
-            InputStream is = getAssets().open("JSON.json");
+            InputStream is = getAssets().open("json/multiplicationTable" + x + ".json");
 
             int size = is.available();
 
@@ -54,7 +55,7 @@ public class EasyDifficultyActivity extends AppCompatActivity {
         try
         {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray("answers");
+            JSONArray jsonArray = jsonObject.getJSONArray("multiplicationTable" + x);
 
             for (int i = 0; i < jsonArray.length(); i++)
             {
