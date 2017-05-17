@@ -1,5 +1,6 @@
 package newton.mathmania;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.Spinner;
 public class ChooseDifficultyActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     String[] spinnerChoices = {"Multiplication Table 1","Multiplication Table 2","Multiplication Table 3","Multiplication Table 4","Multiplication Table 5", "Multiplication Table 6", "Multiplication Table 7", "Multiplication Table 8", "Multiplication Table 9", "Multiplication Table 10"};
-    String spinnerBuffer;
+    int multiplicationTableChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,47 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        switch (position) {
+            case 0:
+                multiplicationTableChoice = 1;
+                break;
+            case 1:
+                multiplicationTableChoice = 2;
+                break;
+            case 2:
+                multiplicationTableChoice = 3;
+                break;
+            case 3:
+                multiplicationTableChoice = 4;
+                break;
+            case 4:
+                multiplicationTableChoice = 5;
+                break;
+            case 5:
+                multiplicationTableChoice = 6;
+                break;
+            case 6:
+                multiplicationTableChoice = 7;
+                break;
+            case 7:
+                multiplicationTableChoice = 8;
+                break;
+            case 8:
+                multiplicationTableChoice = 9;
+                break;
+            case 9:
+                multiplicationTableChoice = 10;
+                break;
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void onClickPlayButtonTjofräs(View v) {
+        Intent intent = new Intent(ChooseDifficultyActivity.this, HardDifficultyActivity.class);
+        ChooseDifficultyActivity.this.startActivity(intent);
     }
 }
