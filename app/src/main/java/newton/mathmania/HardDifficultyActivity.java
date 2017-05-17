@@ -16,7 +16,6 @@ public class HardDifficultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hard_difficulty);
         ActivityHardDifficultyBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_hard_difficulty);
-        question guest = new question();
     }
 
 }
