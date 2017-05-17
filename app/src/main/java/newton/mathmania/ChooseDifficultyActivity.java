@@ -1,17 +1,22 @@
 package newton.mathmania;
 
 import android.content.Intent;
+import android.support.annotation.BoolRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class ChooseDifficultyActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     String[] spinnerChoices = {"Multiplication Table 1","Multiplication Table 2","Multiplication Table 3","Multiplication Table 4","Multiplication Table 5", "Multiplication Table 6", "Multiplication Table 7", "Multiplication Table 8", "Multiplication Table 9", "Multiplication Table 10"};
     int multiplicationTableChoice;
+    Boolean radioButtonDifficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,23 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         multiplicationTablesSpinner.setAdapter(spinnerAdapter);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.easyDifficultyRadioButton:
+                if (checked)
+                    radioButtonDifficulty = true;
+                    break;
+            case R.id.hardDifficultyRadioButton:
+                if (checked)
+                    radioButtonDifficulty = false;
+                    break;
+        }
     }
 
 
@@ -70,7 +92,20 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
     }
 
     public void onClickPlayButtonTjofräs(View v) {
-        Intent intent = new Intent(ChooseDifficultyActivity.this, HardDifficultyActivity.class);
-        ChooseDifficultyActivity.this.startActivity(intent);
+
+        if (radioButtonDifficulty == true) {
+            Intent intent = new Intent(ChooseDifficultyActivity.this, EasyDifficultyActivity.class);
+            ChooseDifficultyActivity.this.startActivity(intent);
+        } else if (radioButtonDifficulty == false) {
+            Intent intent = new Intent(ChooseDifficultyActivity.this, HardDifficultyActivity.class);
+            ChooseDifficultyActivity.this.startActivity(intent);
+        } else {
+            toastMessage("You have to choose difficulty!");
+        }
+
+    }
+
+    private void toastMessage (String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
