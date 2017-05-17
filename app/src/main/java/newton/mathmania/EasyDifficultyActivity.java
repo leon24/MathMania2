@@ -24,7 +24,8 @@ public class EasyDifficultyActivity extends AppCompatActivity {
 
         parseJson(loadJSONFromAsset());
     }
-    int x = 3;
+    int x = ChooseDifficultyActivity.multiplicationTableChoice;
+    boolean rbDif = ChooseDifficultyActivity.radioButtonDifficulty;
 
     public String loadJSONFromAsset()
     {
@@ -59,8 +60,24 @@ public class EasyDifficultyActivity extends AppCompatActivity {
 
             for (int i = 0; i < jsonArray.length(); i++)
             {
+                String question = jsonArray.getJSONObject(i).getString("question" + (i + 1));
                 String answer = jsonArray.getJSONObject(i).getString("answer");
+                String decoy1 = jsonArray.getJSONObject(i).getString("decoy1");
+                String decoy2 = jsonArray.getJSONObject(i).getString("decoy2");
+                String decoy3 = jsonArray.getJSONObject(i).getString("decoy3");
+
+                //if (rbDif == false)
+                //{
+                    String decoy4 = jsonArray.getJSONObject(i).getString("decoy4");
+                    String decoy5 = jsonArray.getJSONObject(i).getString("decoy5");
+                //}
+                Log.i("Tag", "question: " + question);
                 Log.i("Tag", "answer: " + answer);
+                Log.i("Tag", "decoy1: " + decoy1);
+                Log.i("Tag", "decoy2: " + decoy2);
+                Log.i("Tag", "decoy3: " + decoy3);
+                Log.i("Tag", "decoy4: " + decoy4);
+                Log.i("Tag", "decoy5: " + decoy5);
             }
         }
         catch(Exception ex)

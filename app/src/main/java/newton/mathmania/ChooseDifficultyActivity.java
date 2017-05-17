@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class ChooseDifficultyActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     String[] spinnerChoices = {"Multiplication Table 1","Multiplication Table 2","Multiplication Table 3","Multiplication Table 4","Multiplication Table 5", "Multiplication Table 6", "Multiplication Table 7", "Multiplication Table 8", "Multiplication Table 9", "Multiplication Table 10"};
-    int multiplicationTableChoice;
-    Boolean radioButtonDifficulty = true;
+    static int multiplicationTableChoice;
+    static Boolean radioButtonDifficulty = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
