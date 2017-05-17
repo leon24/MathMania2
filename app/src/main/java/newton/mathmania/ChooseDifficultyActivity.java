@@ -16,7 +16,7 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
 
     String[] spinnerChoices = {"Multiplication Table 1","Multiplication Table 2","Multiplication Table 3","Multiplication Table 4","Multiplication Table 5", "Multiplication Table 6", "Multiplication Table 7", "Multiplication Table 8", "Multiplication Table 9", "Multiplication Table 10"};
     int multiplicationTableChoice;
-    Boolean radioButtonDifficulty;
+    Boolean radioButtonDifficulty = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,10 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         multiplicationTablesSpinner.setAdapter(spinnerAdapter);
+
+        RadioButton defaultRadioButtonCheck = (RadioButton) findViewById(R.id.easyDifficultyRadioButton);
+
+        defaultRadioButtonCheck.setChecked(true);
     }
 
     public void onRadioButtonClicked(View view) {
@@ -99,13 +103,6 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
         } else if (radioButtonDifficulty == false) {
             Intent intent = new Intent(ChooseDifficultyActivity.this, HardDifficultyActivity.class);
             ChooseDifficultyActivity.this.startActivity(intent);
-        } else {
-            toastMessage("You have to choose difficulty!");
         }
-
-    }
-
-    private void toastMessage (String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
