@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="Hard"
-            type="newton.mathmania.HardDifficultyActivity" />
+            name="question"
+            type="newton.mathmania.question" />
     </data>
 
 
@@ -42,7 +42,7 @@
         android:layout_marginRight="12dp"
         android:layout_marginStart="12dp"
         android:background="@drawable/border_settings"
-        android:text="Vad blir 8x5?"
+        android:text="@{question.question}"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,7 +58,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:text="@{question.decoy1}"
         app:layout_constraintBottom_toTopOf="@+id/button_d"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -68,7 +68,7 @@
         android:layout_height="100dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="Button"
+        android:text="@{question.answer}"
         app:layout_constraintLeft_toRightOf="@+id/button_a"
         app:layout_constraintRight_toLeftOf="@+id/button_c"
         android:layout_marginBottom="16dp"
@@ -81,7 +81,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="16dp"
-        android:text="Button"
+        android:text="@{question.decoy2}"
         app:layout_constraintBottom_toTopOf="@+id/button_f"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -92,7 +92,7 @@
         android:layout_marginBottom="32dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:text="@{question.decoy3}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -100,7 +100,7 @@
         android:id="@+id/button_e"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:text="Button"
+        android:text="@{question.decoy4}"
         app:layout_constraintLeft_toRightOf="@+id/button_d"
         android:layout_marginLeft="8dp"
         app:layout_constraintRight_toLeftOf="@+id/button_f"
@@ -115,7 +115,7 @@
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="16dp"
-        android:text="Button"
+        android:text="@{question.decoy5}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
