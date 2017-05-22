@@ -19,7 +19,8 @@
         <activity android:name=".AboutActivity" />
         <activity android:name=".EasyDifficultyActivity" />
         <activity android:name=".HardDifficultyActivity" />
-        <activity android:name=".ChooseDifficultyActivity"></activity>
+        <activity android:name=".ChooseDifficultyActivity" />
+        <activity android:name=".ResultActivity"></activity>
     </application>
 
 </manifest>

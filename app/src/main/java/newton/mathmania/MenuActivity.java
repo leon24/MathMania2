@@ -27,6 +27,9 @@ public class MenuActivity extends AppCompatActivity {
     public void accountButtonClick(View v) {
 
         toastMessage("Account settings and statistics.");
+
+        Intent intent = new Intent(MenuActivity.this, ResultActivity.class);
+        MenuActivity.this.startActivity(intent);
     }
 
     public void settingsButtonClick(View v) {
