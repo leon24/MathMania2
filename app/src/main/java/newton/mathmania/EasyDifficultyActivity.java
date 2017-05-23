@@ -21,6 +21,7 @@ public class EasyDifficultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityEasyDifficultyBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_easy_difficulty);
         binding.setViewModel(viewmodel);
+        viewmodel.StartButtonPressed();
 
         parseJson(loadJSONFromAsset());
     }

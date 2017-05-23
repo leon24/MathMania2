@@ -37,7 +37,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:background="@drawable/border_settings"
-        android:text="Vad blir 8x5?"
+        android:text='@{ViewModel.question + ""}'
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintHorizontal_bias="0.0"
@@ -53,7 +53,8 @@
         android:layout_width="170dp"
         android:layout_height="115dp"
         android:layout_marginLeft="8dp"
-        android:text="Button"
+        android:text='@{ViewModel.answer+""}'
+        android:onClick="@{ViewModel::buttonPressed1}"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/eButton3"
@@ -64,7 +65,8 @@
         android:layout_width="170dp"
         android:layout_height="115dp"
         android:layout_marginRight="8dp"
-        android:text="Button"
+        android:onClick="@{ViewModel::buttonPressed2}"
+        android:text='@{ViewModel.decoy1+""}'
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/eButton4"
@@ -76,9 +78,10 @@
         android:layout_height="115dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:text="Button"
+        android:text='@{ViewModel.decoy2+""}'
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="@{ViewModel::buttonPressed3}"
         android:layout_marginStart="8dp" />
 
     <Button
@@ -87,7 +90,8 @@
         android:layout_height="115dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
-        android:text="Button"
+        android:onClick="@{ViewModel::buttonPressed4}"
+        android:text='@{ViewModel.decoy3+""}'
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp" />

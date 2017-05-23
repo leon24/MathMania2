@@ -18,6 +18,7 @@ public class HardDifficultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityHardDifficultyBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_hard_difficulty);
         binding.setViewModel(viewmodel);
+        viewmodel.StartButtonPressed();
     }
 
 }

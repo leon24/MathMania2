@@ -1,4 +1,4 @@
-package newton.mathmania;
+package newton.mathmania.models;
 
 
 public class question {
