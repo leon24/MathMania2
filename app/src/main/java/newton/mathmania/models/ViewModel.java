@@ -3,11 +3,13 @@ package newton.mathmania.models;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.os.CountDownTimer;
 import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 
 import java.util.ArrayList;
+
 
 public class ViewModel extends BaseObservable {
     private ArrayList<question> questionList = new ArrayList<>();
@@ -23,6 +25,13 @@ public class ViewModel extends BaseObservable {
     private int decoy5;
     private int counter = 0;
     private int points = 0;
+    private String countDown;
+
+
+    public void setCountDown(String countDown){
+        this.countDown = countDown;
+        notifyPropertyChanged(newton.mathmania.BR.countDown);
+    }
 
     public void setQuestion(String question) {
         this.question = question;
@@ -61,7 +70,8 @@ public class ViewModel extends BaseObservable {
     }
 
 
-
+    @Bindable
+    public String getCountDown(){return countDown;}
     @Bindable
     public String getQuestion() {
         return question;
@@ -103,8 +113,21 @@ public class ViewModel extends BaseObservable {
         questionList.add(new question("1x10",4,2,3,1,5,6));
         setNewQuestion();
     }
+   public CountDownTimer countdown = new CountDownTimer(31000, 1000) {
+
+        public void onTick(long millisUntilFinished) {
+            setCountDown(""+millisUntilFinished / 1000);
+        }
+
+        public void onFinish() {
+            counter++;
+            setNewQuestion();
+
+        }
+    };
 
     public void setNewQuestion(){
+        countdown.start();
         setQuestion(questionList.get(counter).getQuestion());
         setAnswer(questionList.get(counter).getAnswer());
         setDecoy1(questionList.get(counter).getDecoy1());
