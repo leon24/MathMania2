@@ -77,14 +77,19 @@ for (int i=0; i<userlist.size(); i++) {
         LoginActivity.this.startActivity(intent);
     }
 
-       /* else {
-            toastMessage("Invalid username or password. Please try again.");
-        }*/
+       else {
+            userName.setText("");
+            userPass.setText("");
+        }
 
 }
     }
 
     private void toastMessage (String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    public void changeActivity(View v){
+        Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+        LoginActivity.this.startActivity(intent);
     }
 }

@@ -197,6 +197,8 @@ public class ViewModel extends BaseObservable {
 
     }
     public void buttonPressed1(View v){
+        hardCountdown.cancel();
+        easyCountdown.cancel();
         if(answer == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:","POINTS:"+points);
@@ -210,6 +212,8 @@ public class ViewModel extends BaseObservable {
         else{setNewQuestion();}
     }
     public void buttonPressed2(View v){
+        hardCountdown.cancel();
+        easyCountdown.cancel();
         if(decoy1 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:","POINTS:"+points);
@@ -223,6 +227,8 @@ public class ViewModel extends BaseObservable {
         else{setNewQuestion();}
     }
     public void buttonPressed3(View v){
+        hardCountdown.cancel();
+        easyCountdown.cancel();
         if(decoy2 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
@@ -236,6 +242,8 @@ public class ViewModel extends BaseObservable {
             else{setNewQuestion();}
     }
     public void buttonPressed4(View v){
+        hardCountdown.cancel();
+        easyCountdown.cancel();
         if(decoy3 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
@@ -249,6 +257,7 @@ public class ViewModel extends BaseObservable {
             else{setNewQuestion();}
     }
     public void buttonPressed5(View v){
+        hardCountdown.cancel();
         if(decoy4 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
@@ -262,6 +271,7 @@ public class ViewModel extends BaseObservable {
             else{setNewQuestion();}
     }
     public void buttonPressed6(View v){
+        hardCountdown.cancel();
         if(decoy5 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:","POINTS:"+points);

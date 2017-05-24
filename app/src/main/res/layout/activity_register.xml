@@ -72,25 +72,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
-        android:text="@string/login_loginButton"
-        android:onClick="loginCheck"
+        android:text="Register"
+        android:onClick="registerUser"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUserPass"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Register User"
-        android:onClick="changeActivity"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
