@@ -129,7 +129,21 @@ public class ViewModel extends BaseObservable {
         Collections.shuffle(questionList);
         setNewQuestion();
     }
-   public CountDownTimer countdown = new CountDownTimer(31000, 1000) {
+
+   public CountDownTimer easyCountdown = new CountDownTimer(21000, 1000) {
+
+        public void onTick(long millisUntilFinished) {
+            setCountDown(""+millisUntilFinished / 1000);
+        }
+
+        public void onFinish() {
+            counter++;
+            setNewQuestion();
+
+        }
+    };
+
+    public CountDownTimer hardCountdown = new CountDownTimer(11000, 1000) {
 
         public void onTick(long millisUntilFinished) {
             setCountDown(""+millisUntilFinished / 1000);
@@ -143,9 +157,9 @@ public class ViewModel extends BaseObservable {
     };
 
     public void setNewQuestion(){
-        countdown.start();
         IntList.clear();
         if (HardOrEasy) {
+            easyCountdown.start();
             IntList.add(0, questionList.get(counter).getAnswer());
             IntList.add(1, questionList.get(counter).getDecoy1());
             IntList.add(2, questionList.get(counter).getDecoy2());
@@ -158,6 +172,7 @@ public class ViewModel extends BaseObservable {
             setDecoy3(IntList.get(3));
         }
         else {
+            hardCountdown.start();
             IntList.add(0, questionList.get(counter).getAnswer());
             IntList.add(1, questionList.get(counter).getDecoy1());
             IntList.add(2, questionList.get(counter).getDecoy2());
