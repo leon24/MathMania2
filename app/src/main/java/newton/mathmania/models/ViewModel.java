@@ -25,7 +25,7 @@ import newton.mathmania.ResultActivity;
 
 public class ViewModel extends BaseObservable {
 
-    private ArrayList<Answer> answerList = new ArrayList<>();
+    public static ArrayList<Answer> answerList = new ArrayList<>();
     private ArrayList<question> questionList = new ArrayList<>();
 
     //Dummy Data för Hard difficulity
@@ -38,7 +38,7 @@ public class ViewModel extends BaseObservable {
     private int decoy4;
     private int decoy5;
     private int counter = 0;
-    private int points = 0;
+    public static int points = 0;
     private String countDown;
     private HardDifficultyActivity hard = new HardDifficultyActivity();
     private ArrayList<Integer> IntList = new ArrayList<>();
@@ -204,7 +204,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:","POINTS:"+points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(answer));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), answer));
         counter++;
         if(counter == 10) {
             startResultActivity(v);
@@ -219,7 +221,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:","POINTS:"+points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(decoy1));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy1));
         counter++;
         if(counter == 10) {
             startResultActivity(v);
@@ -234,7 +238,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:", "POINTS:" + points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(decoy2));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy2));
             counter++;
             if(counter == 10) {
                 startResultActivity(v);
@@ -249,7 +255,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:", "POINTS:" + points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(decoy3));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy3));
             counter++;
             if(counter == 10) {
                 startResultActivity(v);
@@ -263,7 +271,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:", "POINTS:" + points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(decoy4));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy4));
         counter++;
             if(counter == 10) {
                 startResultActivity(v);
@@ -277,7 +287,9 @@ public class ViewModel extends BaseObservable {
             Log.i("POITNS:","POINTS:"+points);
         }
 
-        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        Log.i("Answer", Integer.toString(decoy5));
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy5));
 
         counter++;
         if(counter == 10) {

@@ -3,11 +3,13 @@ package newton.mathmania.models;
 public class Answer {
 
     private String Question;
-    private int chosenAnswer;
+    private int CorrectAnswer;
+    private int ChosenAnswer;
 
-    public Answer(String Question, int chosenAnswer) {
+    public Answer(String Question, int CorrectAnswer, int ChosenAnswer) {
         this.Question = Question;
-        this.chosenAnswer = chosenAnswer;
+        this.CorrectAnswer = CorrectAnswer;
+        this.ChosenAnswer = ChosenAnswer;
     }
 
     public String getQuestion() {
@@ -18,11 +20,19 @@ public class Answer {
         Question = question;
     }
 
-    public int getChosenAnswer() {
-        return chosenAnswer;
+    public int getCorrectAnswer() {
+        return CorrectAnswer;
     }
 
-    public void setChosenAnswer(int chosenAnswer) {
-        this.chosenAnswer = chosenAnswer;
+    public void setCorrectAnswer(int CorrectAnswer) {
+        this.CorrectAnswer = CorrectAnswer;
+    }
+
+    public int getChosenAnswer() {
+        return ChosenAnswer;
+    }
+
+    public void setChosenAnswer(int ChosenAnswer) {
+        this.ChosenAnswer = ChosenAnswer;
     }
 }

@@ -5,21 +5,21 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/question_listitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4" />
+        android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/answer"
+        android:id="@+id/correctAnswer_listitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4" />
+        android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/chosenAnswer_listitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_weight="1" />
 
 </LinearLayout>
