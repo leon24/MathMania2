@@ -1,37 +1,27 @@
 package newton.mathmania;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import newton.mathmania.databinding.ActivityResultBinding;
 
-import newton.mathmania.models.ResultData;
+import newton.mathmania.models.ViewModel;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private ListView resultList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ViewModel viewmodel = new ViewModel(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
 
-        resultList = (ListView) findViewById(R.id.resultList);
+        ActivityResultBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_result);
+        binding.setViewModel(viewmodel);
 
-        ResultData result = new ResultData("5x3", 15, true);
+        TextView score = (TextView) findViewById(R.id.textView2);
 
-        ArrayList<ResultData> results = new ArrayList<>();
-
-        results.add(result);
-
-        String resultList1 = results.toString();
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, results);
-
-        resultList.setAdapter(arrayAdapter);
+        score.setText(ViewModel.points + "points!");
 
     }
 }
