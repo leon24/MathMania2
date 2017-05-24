@@ -24,6 +24,8 @@ import newton.mathmania.ResultActivity;
 
 
 public class ViewModel extends BaseObservable {
+
+    private ArrayList<Answer> answerList = new ArrayList<>();
     private ArrayList<question> questionList = new ArrayList<>();
 
     //Dummy Data för Hard difficulity
@@ -199,6 +201,8 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
         counter++;
         if(counter == 10) {
             startResultActivity(v);
@@ -210,6 +214,8 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
         counter++;
         if(counter == 10) {
             startResultActivity(v);
@@ -221,6 +227,8 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
             counter++;
             if(counter == 10) {
                 startResultActivity(v);
@@ -232,6 +240,8 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
             counter++;
             if(counter == 10) {
                 startResultActivity(v);
@@ -242,8 +252,10 @@ public class ViewModel extends BaseObservable {
         if(decoy4 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:", "POINTS:" + points);
-            counter++;
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+        counter++;
             if(counter == 10) {
                 startResultActivity(v);
             }
@@ -254,6 +266,9 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
+
+        answerList.add(new Answer(questionList.get(counter).getQuestion(), answer));
+
         counter++;
         if(counter == 10) {
             startResultActivity(v);
