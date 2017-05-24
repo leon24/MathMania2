@@ -4,11 +4,19 @@ package newton.mathmania.models;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+import java.lang.reflect.Array;
+import java.text.CollationElementIterator;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+import newton.mathmania.EasyDifficultyActivity;
+import newton.mathmania.HardDifficultyActivity;
 
 
 public class ViewModel extends BaseObservable {
@@ -26,6 +34,9 @@ public class ViewModel extends BaseObservable {
     private int counter = 0;
     private int points = 0;
     private String countDown;
+    private HardDifficultyActivity hard = new HardDifficultyActivity();
+    private ArrayList<Integer> IntList = new ArrayList<>();
+
 
 
     public void setCountDown(String countDown){
@@ -106,11 +117,12 @@ public class ViewModel extends BaseObservable {
         questionList.add(new question("1x2",2,1,3,4,5,6));
         questionList.add(new question("1x3",3,2,1,4,5,6));
         questionList.add(new question("1x4",4,2,3,1,5,6));
-        questionList.add(new question("1x5",4,2,3,1,5,6));
-        questionList.add(new question("1x6",4,2,3,1,5,6));
-        questionList.add(new question("1x8",4,2,3,1,5,6));
-        questionList.add(new question("1x9",4,2,3,1,5,6));
-        questionList.add(new question("1x10",4,2,3,1,5,6));
+        questionList.add(new question("1x5",5,2,3,1,5,6));
+        questionList.add(new question("1x6",6,2,3,1,5,7));
+        questionList.add(new question("1x8",8,2,3,1,5,6));
+        questionList.add(new question("1x9",9,2,3,1,5,6));
+        questionList.add(new question("1x10",10,2,3,1,5,6));
+        Collections.shuffle(questionList);
         setNewQuestion();
     }
    public CountDownTimer countdown = new CountDownTimer(31000, 1000) {
@@ -128,19 +140,31 @@ public class ViewModel extends BaseObservable {
 
     public void setNewQuestion(){
         countdown.start();
+        IntList.clear();
+        IntList.add(0,questionList.get(counter).getAnswer());
+        IntList.add(1,questionList.get(counter).getDecoy1());
+        IntList.add(2,questionList.get(counter).getDecoy2());
+        IntList.add(3,questionList.get(counter).getDecoy3());
+        IntList.add(4,questionList.get(counter).getDecoy4());
+        IntList.add(5,questionList.get(counter).getDecoy5());
+        Collections.shuffle(IntList);
         setQuestion(questionList.get(counter).getQuestion());
-        setAnswer(questionList.get(counter).getAnswer());
-        setDecoy1(questionList.get(counter).getDecoy1());
-        setDecoy2(questionList.get(counter).getDecoy2());
-        setDecoy3(questionList.get(counter).getDecoy3());
-        setDecoy4(questionList.get(counter).getDecoy4());
-        setDecoy5(questionList.get(counter).getDecoy5());
+        setAnswer(IntList.get(0));
+        setDecoy1(IntList.get(1));
+        setDecoy2(IntList.get(2));
+        setDecoy3(IntList.get(3));
+        setDecoy4(IntList.get(4));
+        setDecoy5(IntList.get(5));
+
+
+
 
 
     }
     public void buttonPressed1(View v){
-        if(questionList.get(counter).getAnswer()==answer) {
+        if(answer == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
@@ -148,8 +172,9 @@ public class ViewModel extends BaseObservable {
         }
     }
     public void buttonPressed2(View v){
-        if(questionList.get(counter).getDecoy1()==answer) {
+        if(decoy1 == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
@@ -157,8 +182,9 @@ public class ViewModel extends BaseObservable {
         }
     }
     public void buttonPressed3(View v){
-        if(questionList.get(counter).getDecoy2()==answer) {
+        if(decoy2 == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
@@ -166,8 +192,9 @@ public class ViewModel extends BaseObservable {
         }
     }
     public void buttonPressed4(View v){
-        if(questionList.get(counter).getDecoy3()==answer) {
+        if(decoy3 == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
@@ -175,8 +202,9 @@ public class ViewModel extends BaseObservable {
         }
     }
     public void buttonPressed5(View v){
-        if(questionList.get(counter).getDecoy4()==answer) {
+        if(decoy4 == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
@@ -184,8 +212,9 @@ public class ViewModel extends BaseObservable {
         }
     }
     public void buttonPressed6(View v){
-        if(questionList.get(counter).getDecoy5()==answer) {
+        if(decoy5 == questionList.get(counter).getAnswer()) {
             points++;
+            Log.i("POITNS:","POINTS:"+points);
         }
         if(counter < 10) {
             counter++;
