@@ -15,6 +15,13 @@ public class question {
         this.decoy4 = decoy4;
         this.decoy5 = decoy5;
     }
+    public question(String question, int answer, int decoy1, int decoy2, int decoy3){
+        this.question = question;
+        this.answer = answer;
+        this.decoy1 = decoy1;
+        this.decoy2 = decoy2;
+        this.decoy3 = decoy3;
+    }
 
     private int decoy1;
     private int decoy2;

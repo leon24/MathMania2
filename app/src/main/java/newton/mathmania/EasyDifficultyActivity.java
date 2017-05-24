@@ -13,7 +13,7 @@ public class EasyDifficultyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ViewModel viewmodel = new ViewModel();
+        ViewModel viewmodel = new ViewModel(this);
         super.onCreate(savedInstanceState);
         ActivityEasyDifficultyBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_easy_difficulty);
         binding.setViewModel(viewmodel);

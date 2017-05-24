@@ -12,6 +12,7 @@ public class JsonParse {
 
     private ArrayList<question> questionList = new ArrayList<>();
     int x = ChooseDifficultyActivity.multiplicationTableChoice;
+    private boolean HardOrEasy = ChooseDifficultyActivity.radioButtonDifficulty;
 
     public String loadJSONFromAsset(Context myContext)
     {
@@ -37,7 +38,7 @@ public class JsonParse {
         return json;
     }
 
-    private void parseJson(String json)
+    public ArrayList<question> parseJson(String json, ArrayList<question> questionList)
     {
         try
         {
@@ -53,13 +54,19 @@ public class JsonParse {
                 int decoy3 = jsonArray.getJSONObject(i).getInt("decoy3");
                 int decoy4 = jsonArray.getJSONObject(i).getInt("decoy4");
                 int decoy5 = jsonArray.getJSONObject(i).getInt("decoy5");
+                if (HardOrEasy) {
+                    questionList.add(new question(question, answer, decoy1, decoy2, decoy3));
+                }
+                else {
+                    questionList.add(new question(question, answer, decoy1, decoy2, decoy3,decoy4,decoy5));
 
-                questionList.add(new question(question, answer, decoy1, decoy2, decoy3, decoy4, decoy5));
+                }
             }
         }
         catch(Exception ex)
         {
             ex.printStackTrace();
         }
+        return questionList;
     }
 }

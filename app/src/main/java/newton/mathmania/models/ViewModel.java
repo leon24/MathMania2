@@ -1,6 +1,8 @@
 package newton.mathmania.models;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.os.CountDownTimer;
@@ -15,8 +17,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import newton.mathmania.ChooseDifficultyActivity;
 import newton.mathmania.EasyDifficultyActivity;
 import newton.mathmania.HardDifficultyActivity;
+import newton.mathmania.ResultActivity;
 
 
 public class ViewModel extends BaseObservable {
@@ -36,6 +40,13 @@ public class ViewModel extends BaseObservable {
     private String countDown;
     private HardDifficultyActivity hard = new HardDifficultyActivity();
     private ArrayList<Integer> IntList = new ArrayList<>();
+    private JsonParse Json = new JsonParse();
+    private Context context;
+    private boolean HardOrEasy = ChooseDifficultyActivity.radioButtonDifficulty;
+
+    public ViewModel(Context context){
+        this.context = context;
+    }
 
 
 
@@ -113,15 +124,8 @@ public class ViewModel extends BaseObservable {
     }
 
     public void StartButtonPressed (){
-        questionList.add(new question("1x1",1,2,3,4,5,6));
-        questionList.add(new question("1x2",2,1,3,4,5,6));
-        questionList.add(new question("1x3",3,2,1,4,5,6));
-        questionList.add(new question("1x4",4,2,3,1,5,6));
-        questionList.add(new question("1x5",5,2,3,1,5,6));
-        questionList.add(new question("1x6",6,2,3,1,5,7));
-        questionList.add(new question("1x8",8,2,3,1,5,6));
-        questionList.add(new question("1x9",9,2,3,1,5,6));
-        questionList.add(new question("1x10",10,2,3,1,5,6));
+        String j = Json.loadJSONFromAsset(context);
+        Json.parseJson(j, questionList);
         Collections.shuffle(questionList);
         setNewQuestion();
     }
@@ -141,20 +145,34 @@ public class ViewModel extends BaseObservable {
     public void setNewQuestion(){
         countdown.start();
         IntList.clear();
-        IntList.add(0,questionList.get(counter).getAnswer());
-        IntList.add(1,questionList.get(counter).getDecoy1());
-        IntList.add(2,questionList.get(counter).getDecoy2());
-        IntList.add(3,questionList.get(counter).getDecoy3());
-        IntList.add(4,questionList.get(counter).getDecoy4());
-        IntList.add(5,questionList.get(counter).getDecoy5());
-        Collections.shuffle(IntList);
-        setQuestion(questionList.get(counter).getQuestion());
-        setAnswer(IntList.get(0));
-        setDecoy1(IntList.get(1));
-        setDecoy2(IntList.get(2));
-        setDecoy3(IntList.get(3));
-        setDecoy4(IntList.get(4));
-        setDecoy5(IntList.get(5));
+        if (HardOrEasy) {
+            IntList.add(0, questionList.get(counter).getAnswer());
+            IntList.add(1, questionList.get(counter).getDecoy1());
+            IntList.add(2, questionList.get(counter).getDecoy2());
+            IntList.add(3, questionList.get(counter).getDecoy3());
+            Collections.shuffle(IntList);
+            setQuestion(questionList.get(counter).getQuestion());
+            setAnswer(IntList.get(0));
+            setDecoy1(IntList.get(1));
+            setDecoy2(IntList.get(2));
+            setDecoy3(IntList.get(3));
+        }
+        else {
+            IntList.add(0, questionList.get(counter).getAnswer());
+            IntList.add(1, questionList.get(counter).getDecoy1());
+            IntList.add(2, questionList.get(counter).getDecoy2());
+            IntList.add(3, questionList.get(counter).getDecoy3());
+            IntList.add(4, questionList.get(counter).getDecoy4());
+            IntList.add(5, questionList.get(counter).getDecoy5());
+            Collections.shuffle(IntList);
+            setQuestion(questionList.get(counter).getQuestion());
+            setAnswer(IntList.get(0));
+            setDecoy1(IntList.get(1));
+            setDecoy2(IntList.get(2));
+            setDecoy3(IntList.get(3));
+            setDecoy4(IntList.get(4));
+            setDecoy5(IntList.get(5));
+        }
 
 
 
@@ -166,60 +184,69 @@ public class ViewModel extends BaseObservable {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
-        if(counter < 10) {
-            counter++;
-            setNewQuestion();
+        counter++;
+        if(counter == 10) {
+            startResultActivity(v);
         }
+        else{setNewQuestion();}
     }
     public void buttonPressed2(View v){
         if(decoy1 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
-        if(counter < 10) {
-            counter++;
-            setNewQuestion();
+        counter++;
+        if(counter == 10) {
+            startResultActivity(v);
         }
+        else{setNewQuestion();}
     }
     public void buttonPressed3(View v){
         if(decoy2 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
+            Log.i("POITNS:", "POINTS:" + points);
         }
-        if(counter < 10) {
             counter++;
-            setNewQuestion();
-        }
+            if(counter == 10) {
+                startResultActivity(v);
+            }
+            else{setNewQuestion();}
     }
     public void buttonPressed4(View v){
         if(decoy3 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
+            Log.i("POITNS:", "POINTS:" + points);
         }
-        if(counter < 10) {
             counter++;
-            setNewQuestion();
-        }
+            if(counter == 10) {
+                startResultActivity(v);
+            }
+            else{setNewQuestion();}
     }
     public void buttonPressed5(View v){
         if(decoy4 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
-        }
-        if(counter < 10) {
+            Log.i("POITNS:", "POINTS:" + points);
             counter++;
-            setNewQuestion();
         }
+            if(counter == 10) {
+                startResultActivity(v);
+            }
+            else{setNewQuestion();}
     }
     public void buttonPressed6(View v){
         if(decoy5 == questionList.get(counter).getAnswer()) {
             points++;
             Log.i("POITNS:","POINTS:"+points);
         }
-        if(counter < 10) {
-            counter++;
-            setNewQuestion();
+        counter++;
+        if(counter == 10) {
+            startResultActivity(v);
         }
+        else{setNewQuestion();}
     }
-    
+    public void startResultActivity(View v){
+        Intent intent = new Intent(v.getContext(), ResultActivity.class);
+        v.getContext().startActivity(intent);
+    }
 }
