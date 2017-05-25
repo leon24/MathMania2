@@ -1,16 +1,13 @@
 package newton.mathmania;
 
 import android.content.Intent;
-import android.support.annotation.BoolRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class ChooseDifficultyActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -32,7 +29,6 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
         multiplicationTablesSpinner.setAdapter(spinnerAdapter);
 
         RadioButton defaultRadioButtonCheck = (RadioButton) findViewById(R.id.easyDifficultyRadioButton);
-
         defaultRadioButtonCheck.setChecked(true);
     }
 
@@ -97,10 +93,10 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
 
     public void onClickPlayButtonTjofräs(View v) {
 
-        if (radioButtonDifficulty == true) {
+        if (radioButtonDifficulty) {
             Intent intent = new Intent(ChooseDifficultyActivity.this, EasyDifficultyActivity.class);
             ChooseDifficultyActivity.this.startActivity(intent);
-        } else if (radioButtonDifficulty == false) {
+        } else {
             Intent intent = new Intent(ChooseDifficultyActivity.this, HardDifficultyActivity.class);
             ChooseDifficultyActivity.this.startActivity(intent);
         }

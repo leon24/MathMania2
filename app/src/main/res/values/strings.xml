@@ -15,6 +15,14 @@
     <string name="menu_easyButtonText">Easy</string>
     <string name="menu_hardButtonText">Hard</string>
 
+    <string name="result_doneButtonText">Done</string>
+    <string name="result_congratulatoryMessage">Wow, you scored</string>
+    <string name="result_pointsConcatenation">points!</string>
+    <string name="result_defaultImageDescription">Right or wrong?</string>
+    <string name="result_correctAnswer">Correct answer</string>
+    <string name="result_question">Question</string>
+    <string name="result_chosenAnswer">Your answer</string>
+
     <color name="theme_blue">#3f51b5</color>
     <color name="theme_yellow">#edf00c</color>
 

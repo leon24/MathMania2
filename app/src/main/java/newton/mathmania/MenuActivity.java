@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import newton.mathmania.models.ViewModel;
+
 public class MenuActivity extends AppCompatActivity {
 
     @Override

@@ -26,9 +26,7 @@ import newton.mathmania.ResultActivity;
 public class ViewModel extends BaseObservable {
 
     public static ArrayList<Answer> answerList = new ArrayList<>();
-    private ArrayList<question> questionList = new ArrayList<>();
-
-    //Dummy Data för Hard difficulity
+    public static ArrayList<question> questionList = new ArrayList<>();
 
     private String question;
     private int answer;
@@ -44,7 +42,7 @@ public class ViewModel extends BaseObservable {
     private ArrayList<Integer> IntList = new ArrayList<>();
     private JsonParse Json = new JsonParse();
     private Context context;
-    private boolean HardOrEasy = ChooseDifficultyActivity.radioButtonDifficulty;
+    private boolean difficulty = ChooseDifficultyActivity.radioButtonDifficulty;
 
     public ViewModel(Context context){
         this.context = context;
@@ -90,7 +88,6 @@ public class ViewModel extends BaseObservable {
     public void setDecoy5(int decoy5) {
         this.decoy5 = decoy5;
         notifyPropertyChanged(newton.mathmania.BR.decoy5);
-
     }
 
 
@@ -141,7 +138,6 @@ public class ViewModel extends BaseObservable {
         public void onFinish() {
             counter++;
             setNewQuestion();
-
         }
     };
 
@@ -154,13 +150,12 @@ public class ViewModel extends BaseObservable {
         public void onFinish() {
             counter++;
             setNewQuestion();
-
         }
     };
 
     public void setNewQuestion(){
         IntList.clear();
-        if (HardOrEasy) {
+        if (difficulty) {
             easyCountdown.start();
             IntList.add(0, questionList.get(counter).getAnswer());
             IntList.add(1, questionList.get(counter).getDecoy1());
@@ -189,22 +184,18 @@ public class ViewModel extends BaseObservable {
             setDecoy3(IntList.get(3));
             setDecoy4(IntList.get(4));
             setDecoy5(IntList.get(5));
+
         }
-
-
-
-
-
     }
+
+
     public void buttonPressed1(View v){
         hardCountdown.cancel();
         easyCountdown.cancel();
         if(answer == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
+            Log.i("POINTS:","" + points);
         }
-
-        Log.i("Answer", Integer.toString(answer));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), answer));
         counter++;
@@ -213,15 +204,14 @@ public class ViewModel extends BaseObservable {
         }
         else{setNewQuestion();}
     }
+
     public void buttonPressed2(View v){
         hardCountdown.cancel();
         easyCountdown.cancel();
         if(decoy1 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
+            Log.i("POINTS:","" + points);
         }
-
-        Log.i("Answer", Integer.toString(decoy1));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy1));
         counter++;
@@ -230,15 +220,14 @@ public class ViewModel extends BaseObservable {
         }
         else{setNewQuestion();}
     }
+
     public void buttonPressed3(View v){
         hardCountdown.cancel();
         easyCountdown.cancel();
         if(decoy2 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:", "POINTS:" + points);
+            Log.i("POINTS:", "" + points);
         }
-
-        Log.i("Answer", Integer.toString(decoy2));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy2));
             counter++;
@@ -252,10 +241,8 @@ public class ViewModel extends BaseObservable {
         easyCountdown.cancel();
         if(decoy3 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:", "POINTS:" + points);
+            Log.i("POINTS:", "" + points);
         }
-
-        Log.i("Answer", Integer.toString(decoy3));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy3));
             counter++;
@@ -268,10 +255,8 @@ public class ViewModel extends BaseObservable {
         hardCountdown.cancel();
         if(decoy4 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:", "POINTS:" + points);
+            Log.i("POINTS:", "" + points);
         }
-
-        Log.i("Answer", Integer.toString(decoy4));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy4));
         counter++;
@@ -284,10 +269,8 @@ public class ViewModel extends BaseObservable {
         hardCountdown.cancel();
         if(decoy5 == questionList.get(counter).getAnswer()) {
             points++;
-            Log.i("POITNS:","POINTS:"+points);
+            Log.i("POINTS:","" + points);
         }
-
-        Log.i("Answer", Integer.toString(decoy5));
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy5));
 
@@ -299,6 +282,8 @@ public class ViewModel extends BaseObservable {
     }
     public void startResultActivity(View v){
         Intent intent = new Intent(v.getContext(), ResultActivity.class);
+        intent.putExtra("difficulty", difficulty);
+        intent.putExtra("score", points);
         v.getContext().startActivity(intent);
     }
 }
