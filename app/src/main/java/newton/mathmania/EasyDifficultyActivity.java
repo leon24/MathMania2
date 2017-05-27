@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-
 import newton.mathmania.databinding.ActivityEasyDifficultyBinding;
 import newton.mathmania.databinding.ActivityHardDifficultyBinding;
 import newton.mathmania.models.ViewModel;
@@ -18,6 +17,5 @@ public class EasyDifficultyActivity extends AppCompatActivity {
         ActivityEasyDifficultyBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_easy_difficulty);
         binding.setViewModel(viewmodel);
         viewmodel.StartButtonPressed();
-
     }
 }

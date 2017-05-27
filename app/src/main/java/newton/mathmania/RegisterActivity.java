@@ -15,7 +15,6 @@ public class RegisterActivity extends AppCompatActivity {
     private String UserName1;
     private String PassWord1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +22,8 @@ public class RegisterActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.loginUserName);
         userPass = (EditText) findViewById(R.id.loginUserPass);
         mDatabaseHelper = new DatabaseHelper(this);
-
     }
+
     public void registerUser(View v){
         UserName1 = userName.getText().toString();
         PassWord1 = userPass.getText().toString();

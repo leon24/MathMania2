@@ -49,7 +49,6 @@ public class ChooseDifficultyActivity extends AppCompatActivity implements Adapt
         }
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {

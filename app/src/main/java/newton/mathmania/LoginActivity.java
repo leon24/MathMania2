@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 import newton.mathmania.models.DatabaseHelper;
@@ -37,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         Cursor mcursor = db.rawQuery(count, null);
         mcursor.moveToFirst();
         int icount = mcursor.getInt(0);
+
         if(icount>0){}
         else{
             Log.i("Database","Lägger till Lösenord och användarnamn");
@@ -45,12 +45,12 @@ public class LoginActivity extends AppCompatActivity {
             mDatabaseHelper.addUser("Remi","Remi");
             mDatabaseHelper.addUser("Christian","Christian");
             mDatabaseHelper.addUser("Tobias","Tobias");
-
         }
 
         Cursor c = mDatabaseHelper.getData();
         c.moveToFirst();
         Log.i("Database",c.getCount()+"?");
+
         if(c.getCount()==0){
             Log.i("Database","Det finns inget i databasen");
         }
@@ -58,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             while (c.moveToNext()){
                 Log.i("Database","While loop körs");
                 userlist.add(new userLogin(c.getString(1),c.getString(2)));
-
             }
         }
     }
@@ -67,27 +66,27 @@ public class LoginActivity extends AppCompatActivity {
         login.setUserName(userName.getText().toString());
         login.setPassword(userPass.getText().toString());
         Log.i("Database",login.toString()+userlist.get(0).toString());
+
         for (userLogin member : userlist){
             Log.i("Database", member.toString());
         }
 
-for (int i=0; i<userlist.size(); i++) {
-    if (userlist.get(i).getUserName().equals(login.getUserName()) && userlist.get(i).getPassword().equals(login.getPassword())) {
-        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-        LoginActivity.this.startActivity(intent);
-    }
-
-       else {
-            userName.setText("");
-            userPass.setText("");
+        for (int i=0; i<userlist.size(); i++) {
+            if (userlist.get(i).getUserName().equals(login.getUserName()) && userlist.get(i).getPassword().equals(login.getPassword())) {
+                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+            else {
+                userName.setText("");
+                userPass.setText("");
+            }
         }
-
-}
     }
 
     private void toastMessage (String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
     public void changeActivity(View v){
         Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
         LoginActivity.this.startActivity(intent);

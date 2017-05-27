@@ -8,17 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import newton.mathmania.databinding.ActivityResultBinding;
-
-import newton.mathmania.models.Answer;
 import newton.mathmania.models.ResultListAdapter;
 import newton.mathmania.models.ViewModel;
 
@@ -61,7 +54,6 @@ public class ResultActivity extends AppCompatActivity {
 
         listView.addHeaderView(header, null, false);
         listView.setAdapter(adapter);
-
     }
 
     public void checkDifficulty() {
@@ -74,7 +66,6 @@ public class ResultActivity extends AppCompatActivity {
 
         Log.i("string", difficulty);
         Log.i("boolean", String.valueOf(difficultyBuffer));
-
     }
 
     public void resetGame() {
@@ -85,7 +76,6 @@ public class ResultActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
         ChooseDifficultyActivity.radioButtonDifficulty = true;
-
     }
 
     public void doneButtonClick(View v) {
@@ -95,5 +85,4 @@ public class ResultActivity extends AppCompatActivity {
 
         resetGame();
     }
-
 }

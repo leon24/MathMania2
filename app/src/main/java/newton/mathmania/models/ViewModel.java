@@ -1,6 +1,5 @@
 package newton.mathmania.models;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
@@ -8,20 +7,12 @@ import android.databinding.Bindable;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
-
-import com.android.databinding.library.baseAdapters.BR;
-
-import java.lang.reflect.Array;
-import java.text.CollationElementIterator;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-
 import newton.mathmania.ChooseDifficultyActivity;
 import newton.mathmania.EasyDifficultyActivity;
 import newton.mathmania.HardDifficultyActivity;
 import newton.mathmania.ResultActivity;
-
 
 public class ViewModel extends BaseObservable {
 
@@ -43,12 +34,14 @@ public class ViewModel extends BaseObservable {
     private JsonParse Json = new JsonParse();
     private Context context;
     private boolean difficulty = ChooseDifficultyActivity.radioButtonDifficulty;
+    public static int easyMillisLeft;
+    public static int hardMillisLeft;
+    PointCalculator pCalc = new PointCalculator(
+    );
 
     public ViewModel(Context context){
         this.context = context;
     }
-
-
 
     public void setCountDown(String countDown){
         this.countDown = countDown;
@@ -89,7 +82,6 @@ public class ViewModel extends BaseObservable {
         this.decoy5 = decoy5;
         notifyPropertyChanged(newton.mathmania.BR.decoy5);
     }
-
 
     @Bindable
     public String getCountDown(){return countDown;}
@@ -133,6 +125,8 @@ public class ViewModel extends BaseObservable {
 
         public void onTick(long millisUntilFinished) {
             setCountDown(""+millisUntilFinished / 1000);
+
+            easyMillisLeft = (int) millisUntilFinished;
         }
 
         public void onFinish() {
@@ -145,6 +139,8 @@ public class ViewModel extends BaseObservable {
 
         public void onTick(long millisUntilFinished) {
             setCountDown(""+millisUntilFinished / 1000);
+
+            hardMillisLeft = (int) millisUntilFinished;
         }
 
         public void onFinish() {
@@ -184,18 +180,23 @@ public class ViewModel extends BaseObservable {
             setDecoy3(IntList.get(3));
             setDecoy4(IntList.get(4));
             setDecoy5(IntList.get(5));
-
         }
     }
 
-
     public void buttonPressed1(View v){
-        hardCountdown.cancel();
-        easyCountdown.cancel();
         if(answer == questionList.get(counter).getAnswer()) {
-            points++;
+            if (difficulty)
+            {
+                points += pCalc.calculatePointsEasy();
+            }
+            else
+                {
+                    points += pCalc.calculatePointsHard();
+                }
             Log.i("POINTS:","" + points);
         }
+        hardCountdown.cancel();
+        easyCountdown.cancel();
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), answer));
         counter++;
@@ -206,12 +207,19 @@ public class ViewModel extends BaseObservable {
     }
 
     public void buttonPressed2(View v){
-        hardCountdown.cancel();
-        easyCountdown.cancel();
         if(decoy1 == questionList.get(counter).getAnswer()) {
-            points++;
+            if (difficulty)
+            {
+                points += pCalc.calculatePointsEasy();
+            }
+            else
+            {
+                points += pCalc.calculatePointsHard();
+            }
             Log.i("POINTS:","" + points);
         }
+        hardCountdown.cancel();
+        easyCountdown.cancel();
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy1));
         counter++;
@@ -222,12 +230,19 @@ public class ViewModel extends BaseObservable {
     }
 
     public void buttonPressed3(View v){
+        if(decoy2 == questionList.get(counter).getAnswer()) {
+            if (difficulty)
+            {
+                points += pCalc.calculatePointsEasy();
+            }
+            else
+            {
+                points += pCalc.calculatePointsHard();
+            }
+            Log.i("POINTS:","" + points);
+        }
         hardCountdown.cancel();
         easyCountdown.cancel();
-        if(decoy2 == questionList.get(counter).getAnswer()) {
-            points++;
-            Log.i("POINTS:", "" + points);
-        }
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy2));
             counter++;
@@ -236,13 +251,21 @@ public class ViewModel extends BaseObservable {
             }
             else{setNewQuestion();}
     }
+
     public void buttonPressed4(View v){
+        if(decoy3 == questionList.get(counter).getAnswer()) {
+            if (difficulty)
+            {
+                points += pCalc.calculatePointsEasy();
+            }
+            else
+            {
+                points += pCalc.calculatePointsHard();
+            }
+            Log.i("POINTS:","" + points);
+        }
         hardCountdown.cancel();
         easyCountdown.cancel();
-        if(decoy3 == questionList.get(counter).getAnswer()) {
-            points++;
-            Log.i("POINTS:", "" + points);
-        }
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy3));
             counter++;
@@ -251,12 +274,13 @@ public class ViewModel extends BaseObservable {
             }
             else{setNewQuestion();}
     }
+
     public void buttonPressed5(View v){
-        hardCountdown.cancel();
         if(decoy4 == questionList.get(counter).getAnswer()) {
-            points++;
+            points += pCalc.calculatePointsHard();
             Log.i("POINTS:", "" + points);
         }
+        hardCountdown.cancel();
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy4));
         counter++;
@@ -265,12 +289,13 @@ public class ViewModel extends BaseObservable {
             }
             else{setNewQuestion();}
     }
+
     public void buttonPressed6(View v){
-        hardCountdown.cancel();
         if(decoy5 == questionList.get(counter).getAnswer()) {
-            points++;
+            points += pCalc.calculatePointsHard();
             Log.i("POINTS:","" + points);
         }
+        hardCountdown.cancel();
 
         answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), decoy5));
 
@@ -280,6 +305,7 @@ public class ViewModel extends BaseObservable {
         }
         else{setNewQuestion();}
     }
+
     public void startResultActivity(View v){
         Intent intent = new Intent(v.getContext(), ResultActivity.class);
         intent.putExtra("difficulty", difficulty);

@@ -54,6 +54,7 @@ public class JsonParse {
                 int decoy3 = jsonArray.getJSONObject(i).getInt("decoy3");
                 int decoy4 = jsonArray.getJSONObject(i).getInt("decoy4");
                 int decoy5 = jsonArray.getJSONObject(i).getInt("decoy5");
+
                 if (HardOrEasy) {
                     questionList.add(new question(question, answer, decoy1, decoy2, decoy3));
                 }

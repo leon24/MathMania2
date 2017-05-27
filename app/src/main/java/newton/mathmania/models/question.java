@@ -1,6 +1,5 @@
 package newton.mathmania.models;
 
-
 public class question {
 
     private String question;
@@ -15,6 +14,7 @@ public class question {
         this.decoy4 = decoy4;
         this.decoy5 = decoy5;
     }
+
     public question(String question, int answer, int decoy1, int decoy2, int decoy3){
         this.question = question;
         this.answer = answer;
@@ -85,6 +85,4 @@ public class question {
 
     private int decoy4;
     private int decoy5;
-
-
 }
