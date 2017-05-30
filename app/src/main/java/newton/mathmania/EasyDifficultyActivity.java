@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import newton.mathmania.databinding.ActivityEasyDifficultyBinding;
-import newton.mathmania.databinding.ActivityHardDifficultyBinding;
 import newton.mathmania.models.ViewModel;
 
 public class EasyDifficultyActivity extends AppCompatActivity {

@@ -21,7 +21,7 @@
         <activity android:name=".HardDifficultyActivity" />
         <activity android:name=".ChooseDifficultyActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity"/>
     </application>
 
 </manifest>

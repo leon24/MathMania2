@@ -4,10 +4,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+
 import java.util.ArrayList;
 
 import newton.mathmania.databinding.ActivityHardDifficultyBinding;
 import newton.mathmania.models.ViewModel;
+
 
 public class HardDifficultyActivity extends AppCompatActivity {
     ArrayList<Button> buttonList = new ArrayList<>();
@@ -20,4 +22,5 @@ public class HardDifficultyActivity extends AppCompatActivity {
         binding.setViewModel(viewmodel);
         viewmodel.StartButtonPressed();
     }
+
 }

@@ -312,4 +312,6 @@ public class ViewModel extends BaseObservable {
         intent.putExtra("score", points);
         v.getContext().startActivity(intent);
     }
+
+
 }
