@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="newton.mathmania.ChooseDifficultyActivity">
+    tools:context="newton.mathmania.ChooseDifficultyActivity"
+    android:background="@drawable/new_choose_background">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/chooseDifficultyLogotype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,54 +20,73 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="@string/mathmania_logotype" />
+        android:contentDescription="@string/mathmania_logotype" /> -->
 
     <Spinner
         android:id="@+id/spinnerChooseMultiplicationTable"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/new_game_button"
+        android:dropDownWidth="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroupDifficulty"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseDifficultyLogotype" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="293dp"
+        android:layout_height="71dp"
         android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="Play"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/new_game_button"
         android:onClick="onClickPlayButtonTjofräs"
+        android:text="Play"
+        android:textAlignment="center"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+         />
 
     <RadioGroup
         android:id="@+id/radioGroupDifficulty"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="340dp"
+        android:layout_height="196dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerChooseMultiplicationTable"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.0">
+        app:layout_constraintHorizontal_bias="0.75"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.26999998">
 
         <RadioButton
             android:id="@+id/easyDifficultyRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="261dp"
+            android:layout_height="53dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="31dp"
@@ -75,22 +95,26 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerChooseMultiplicationTable" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerChooseMultiplicationTable"
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
         <RadioButton
             android:id="@+id/hardDifficultyRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="260dp"
             android:layout_height="50dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="16dp"
-            android:text="Hard Difficulty"
             android:onClick="onRadioButtonClicked"
+            android:text="Hard Difficulty"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/easyDifficultyRadioButton" />
+            app:layout_constraintTop_toBottomOf="@+id/easyDifficultyRadioButton"
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
     </RadioGroup>
 
