@@ -23,7 +23,7 @@ public class MenuActivity extends AppCompatActivity {
     public void accountButtonClick(View v) {
 
         toastMessage("Account settings and statistics.");
-        
+
     }
 
     public void settingsButtonClick(View v) {

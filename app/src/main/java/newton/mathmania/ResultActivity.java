@@ -72,6 +72,7 @@ public class ResultActivity extends AppCompatActivity {
 
         ViewModel.points = 0;
         ViewModel.answerList.clear();
+        ViewModel.questionList.clear();
 
         adapter.notifyDataSetChanged();
 
