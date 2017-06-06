@@ -56,6 +56,10 @@ public class ResultActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     public void checkDifficulty() {
 
         if (difficultyBuffer) {
