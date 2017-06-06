@@ -9,7 +9,6 @@
             type="newton.mathmania.models.ViewModel" />
     </data>
 
-
 <android.support.constraint.ConstraintLayout
 
     android:layout_width="match_parent"
@@ -18,17 +17,6 @@
     tools:context="newton.mathmania.HardDifficultyActivity"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
-
-   <!-- <ImageView
-        android:id="@+id/hardDifficultyLogotype"
-        android:layout_width="357dp"
-        android:layout_height="104dp"
-        app:srcCompat="@drawable/head_counter"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/mathmania_logotype"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="2dp" /> -->
 
     <TextView
         android:id="@+id/Question"
@@ -179,5 +167,4 @@
         android:textAlignment="center"/>
 
 </android.support.constraint.ConstraintLayout>
-
 </layout>

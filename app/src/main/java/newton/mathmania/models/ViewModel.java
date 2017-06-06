@@ -36,8 +36,7 @@ public class ViewModel extends BaseObservable {
     private boolean difficulty = ChooseDifficultyActivity.radioButtonDifficulty;
     public static int easyMillisLeft;
     public static int hardMillisLeft;
-    PointCalculator pCalc = new PointCalculator(
-    );
+    PointCalculator pCalc = new PointCalculator();
 
     public ViewModel(Context context){
         this.context = context;
@@ -130,6 +129,7 @@ public class ViewModel extends BaseObservable {
         }
 
         public void onFinish() {
+            answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), 0));
             counter++;
             setNewQuestion();
         }
@@ -144,6 +144,7 @@ public class ViewModel extends BaseObservable {
         }
 
         public void onFinish() {
+            answerList.add(new Answer(questionList.get(counter).getQuestion(), questionList.get(counter).getAnswer(), 0));
             counter++;
             setNewQuestion();
         }
@@ -312,6 +313,4 @@ public class ViewModel extends BaseObservable {
         intent.putExtra("score", points);
         v.getContext().startActivity(intent);
     }
-
-
 }
