@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import newton.mathmania.models.DatabaseHelper;
 
@@ -30,5 +31,11 @@ public class RegisterActivity extends AppCompatActivity {
         mDatabaseHelper.addUser(UserName1,PassWord1);
         Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
         RegisterActivity.this.startActivity(intent);
+
+        toastMessage("User created successfully!");
+    }
+
+    private void toastMessage (String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

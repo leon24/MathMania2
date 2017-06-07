@@ -8,20 +8,37 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".EasyDifficultyActivity" />
-        <activity android:name=".HardDifficultyActivity" />
-        <activity android:name=".ChooseDifficultyActivity" />
-        <activity android:name=".ResultActivity" />
-        <activity android:name=".RegisterActivity"/>
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EasyDifficultyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HardDifficultyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChooseDifficultyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

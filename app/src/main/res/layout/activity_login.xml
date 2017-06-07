@@ -13,20 +13,20 @@
     android:background="@drawable/new_login_background"
     tools:context="newton.mathmania.LoginActivity">
 
-    <!--<ImageView
+    <ImageView
         android:id="@+id/loginLogotype"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/mathmanialogo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
+        android:layout_height="250dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/mathmania_logotype" /> -->
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/mathmania_logotype"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mathmania_logo" />
 
     <EditText
         android:id="@+id/loginUserName"
@@ -43,9 +43,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="62dp"
-        app:layout_constraintHorizontal_bias="0.517" />
+        app:layout_constraintHorizontal_bias="0.509"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/loginLogotype" />
 
     <EditText
         android:id="@+id/loginUserPass"
