@@ -9,8 +9,8 @@
     <string name="mathmania_logotype">MathMania logotype</string>
 
     <string name="menu_playButtonText">Play</string>
-    <string name="menu_accountButtonText">Account</string>
-    <string name="menu_settingsButtonText">Settings</string>
+    <string name="menu_accountButtonText">Log Out</string>
+    <string name="menu_settingsButtonText">Highscore</string>
     <string name="menu_aboutButtonText">About</string>
     <string name="menu_easyButtonText">Easy</string>
     <string name="menu_hardButtonText">Hard</string>

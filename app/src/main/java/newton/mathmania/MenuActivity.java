@@ -20,9 +20,10 @@ public class MenuActivity extends AppCompatActivity {
         MenuActivity.this.startActivity(intent);
     }
 
-    public void accountButtonClick(View v) {
+    public void logoutButtonClick(View v) {
 
-        toastMessage("Account settings and statistics.");
+        Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
+        MenuActivity.this.startActivity(intent);
 
     }
 
