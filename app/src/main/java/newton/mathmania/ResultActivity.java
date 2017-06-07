@@ -81,18 +81,19 @@ public class ResultActivity extends AppCompatActivity {
         String hardPoints = c.getString(4);
         int e = Integer.parseInt(easyPoints);
         int h = Integer.parseInt(hardPoints);
-        int Total;
 
         if (difficultyBuffer) {
             difficulty = "easy";
-            Total = e+score;
-            scoreString = Total+"";
-            database.addPointsEasy(scoreString,userName);
+            if(score>e) {
+                scoreString = score + "";
+                database.addPointsEasy(scoreString, userName);
+            }
         } else {
             difficulty = "hard";
-            Total = h+score;
-            scoreString = Total+"";
-            database.addPointsHard(scoreString,userName);
+            if(score>h) {
+                scoreString = score + "";
+                database.addPointsHard(scoreString, userName);
+            }
         }
 
         Log.i("string", difficulty);
