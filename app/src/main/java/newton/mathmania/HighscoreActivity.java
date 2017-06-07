@@ -23,8 +23,8 @@ public class HighscoreActivity extends AppCompatActivity {
         Cursor c = database.getData();
         int i = database.getIdFromClassName(userName);
         c.moveToPosition(i-1);
-        highscore.setText("Easy Highscore "+c.getString(3));
-        highscore2.setText("Hard Highscore "+c.getString(4));
+        highscore.setText("Easy Highscore: "+c.getString(3));
+        highscore2.setText("Hard Highscore: "+c.getString(4));
 
     }
 }
