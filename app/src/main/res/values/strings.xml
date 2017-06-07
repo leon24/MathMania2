@@ -23,6 +23,8 @@
     <string name="result_question">Question</string>
     <string name="result_chosenAnswer">Your answer</string>
 
+    <string name="highscore_highscoreText">Highscore:</string>
+
     <color name="theme_blue">#3f51b5</color>
     <color name="theme_yellow">#edf00c</color>
 
