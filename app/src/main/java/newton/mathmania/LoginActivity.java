@@ -67,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         login.setPassword(userPass.getText().toString());
         Log.i("Database",login.toString()+userlist.get(0).toString());
 
+        Boolean loginBoolean = false;
+
         for (userLogin member : userlist){
             Log.i("Database", member.toString());
         }
@@ -75,11 +77,20 @@ public class LoginActivity extends AppCompatActivity {
             if (userlist.get(i).getUserName().equals(login.getUserName()) && userlist.get(i).getPassword().equals(login.getPassword())) {
                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                 LoginActivity.this.startActivity(intent);
+
+                loginBoolean = true;
+                break;
             }
             else {
                 userName.setText("");
                 userPass.setText("");
             }
+        }
+
+        if (loginBoolean) {
+            toastMessage("Login successful!");
+        } else {
+            toastMessage("Login failed - please try again!");
         }
     }
 
