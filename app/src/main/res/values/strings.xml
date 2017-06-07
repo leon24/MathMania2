@@ -9,8 +9,8 @@
     <string name="mathmania_logotype">MathMania logotype</string>
 
     <string name="menu_playButtonText">Play</string>
-    <string name="menu_accountButtonText">Account</string>
-    <string name="menu_settingsButtonText">Settings</string>
+    <string name="menu_logoutButtonText">Log Out</string>
+    <string name="menu_scoreButtonText">Highscore</string>
     <string name="menu_aboutButtonText">About</string>
     <string name="menu_easyButtonText">Easy</string>
     <string name="menu_hardButtonText">Hard</string>
@@ -22,6 +22,8 @@
     <string name="result_correctAnswer">Correct answer</string>
     <string name="result_question">Question</string>
     <string name="result_chosenAnswer">Your answer</string>
+
+    <string name="highscore_highscoreText">Highscore:</string>
 
     <color name="theme_blue">#3f51b5</color>
     <color name="theme_yellow">#edf00c</color>
