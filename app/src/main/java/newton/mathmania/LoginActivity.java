@@ -67,13 +67,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setPassword(userPass.getText().toString());
         Log.i("Database", login.toString() + userlist.get(0).toString());
 
-<<<<<<< HEAD
         Boolean loginBoolean = false;
 
-        for (userLogin member : userlist){
-=======
         for (userLogin member : userlist) {
->>>>>>> origin/master
             Log.i("Database", member.toString());
         }
 
@@ -82,15 +78,10 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                 intent.putExtra("User",login.getUserName());
                 LoginActivity.this.startActivity(intent);
-<<<<<<< HEAD
 
                 loginBoolean = true;
                 break;
-            }
-            else {
-=======
             } else {
->>>>>>> origin/master
                 userName.setText("");
                 userPass.setText("");
             }
