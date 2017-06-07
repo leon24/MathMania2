@@ -20,14 +20,14 @@ public class MenuActivity extends AppCompatActivity {
         MenuActivity.this.startActivity(intent);
     }
 
-    public void logoutButtonClick(View v) {
+    public void logOutButtonClick(View v) {
 
         Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
         MenuActivity.this.startActivity(intent);
 
     }
 
-    public void scoreButtonClick(View v) {
+    public void highscoreButtonClick(View v) {
 
         Intent intent = new Intent(MenuActivity.this, HighscoreActivity.class);
         MenuActivity.this.startActivity(intent);
