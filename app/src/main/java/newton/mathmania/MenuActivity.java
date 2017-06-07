@@ -27,7 +27,7 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-    public void settingsButtonClick(View v) {
+    public void scoreButtonClick(View v) {
 
         toastMessage("Application settings.");
     }
