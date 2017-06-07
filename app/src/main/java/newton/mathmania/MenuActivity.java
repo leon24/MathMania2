@@ -29,7 +29,8 @@ public class MenuActivity extends AppCompatActivity {
 
     public void scoreButtonClick(View v) {
 
-        toastMessage("Application settings.");
+        Intent intent = new Intent(MenuActivity.this, HighscoreActivity.class);
+        MenuActivity.this.startActivity(intent);
     }
 
     public void aboutButtonClick(View v) {
